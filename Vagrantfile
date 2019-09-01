@@ -70,4 +70,8 @@ Vagrant.configure("2") do |config|
     apt-add-repository --yes --update ppa:ansible/ansible
     apt install -y ansible
   SHELL
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "provision/playbook.yml"
+    ansible.verbose = true
+  end
 end
